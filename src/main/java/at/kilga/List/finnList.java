@@ -3,8 +3,8 @@ package at.kilga.List;
 import at.kilga.List.Node;
 
 public class finnList {
-    Node first, last;
-    int size;
+    private Node first, last;
+    private int size = 0;
 
     public void addFirst(int value) {
         Node node = new Node(value);
@@ -76,7 +76,7 @@ public class finnList {
 
     private void setLast() {
         if (this.first == null) {
-            // no element in list
+            this.last = null;
         } else {
             Node node = this.first;
             while (true) {
@@ -87,6 +87,8 @@ public class finnList {
                 node = node.getNextNode();
             }
         }
+        System.out.println("Last Node Value" + this.last.getValue());
+        System.out.println("First Node Value" + this.first.getValue());
     }
 
     // Print
@@ -108,4 +110,9 @@ public class finnList {
             }
         }
     }
+
+    public void getSize() {
+        System.out.println(this.size);
+    }
+
 }

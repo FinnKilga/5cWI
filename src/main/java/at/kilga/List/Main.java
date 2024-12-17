@@ -2,25 +2,23 @@ package at.kilga.List;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println();
+        System.out.println();
+        System.out.println("new Start");
         finnList list = new finnList();
-        // list.addFirst(5);
-        // list.addFirst(6);
-        // list.addFirst(3);
-        // list.printList();
-        // list.removeLast();
-        // list.removeLast();
-        // System.out.println("after remove");
-        // list.printList();
-        // System.out.println("before add last");
-        list.addLast(30);
-        list.addLast(60);
-        list.addLast(50);
+        list.getSize();
+        list.addLast(252);
+        list.addFirst(420);
+        list.addLast(360);
         list.printList();
-        System.out.println("remove last:");
+        list.getSize();
+        System.out.println("remove");
+        list.removeLast();
         list.removeLast();
         list.printList();
-        System.out.println("remove last:");
+        System.out.println("remove last");
         list.removeLast();
         list.printList();
+        list.getSize();
     }
 }
