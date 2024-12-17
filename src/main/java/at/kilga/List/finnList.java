@@ -6,6 +6,7 @@ public class finnList {
     private Node first, last;
     private int size = 0;
 
+    // add
     public void addFirst(int value) {
         Node node = new Node(value);
         if (listEmpty()) {
@@ -17,17 +18,6 @@ public class finnList {
         }
         setLast();
         this.size++;
-    }
-
-    public void removeFirst() {
-        if (listEmpty()) {
-            System.out.println("No elements in list");
-        } else {
-            Node node = this.first.getNextNode();
-            this.first = node;
-        }
-        setLast();
-        this.size--;
     }
 
     public void addLast(int value) {
@@ -51,6 +41,18 @@ public class finnList {
         this.size++;
     }
 
+    // remove
+    public void removeFirst() {
+        if (listEmpty()) {
+            System.out.println("No elements in list");
+        } else {
+            Node node = this.first.getNextNode();
+            this.first = node;
+        }
+        setLast();
+        this.size--;
+    }
+
     public void removeLast() {
         if (listEmpty()) {
             System.out.println("No elements in list");
@@ -63,6 +65,48 @@ public class finnList {
         }
         setLast();
         this.size--;
+    }
+
+    public void removeValue(int value) {
+        if (listEmpty()) {
+            System.out.println("No elements in list");
+        } else {
+            Node pastNode, presentNode, futureNode;
+            boolean nodeFound = false;
+
+            if (this.first.getValue() == value) {
+                removeFirst();
+            } else if (this.last.getValue() == value) {
+                removeLast();
+            } else {
+                if (this.size >= 3) {
+                    pastNode = this.first;
+                    presentNode = pastNode.getNextNode();
+                    futureNode = presentNode.getNextNode();
+                    while (!nodeFound) {
+                        // check value
+                        if (presentNode.getValue() == value) {
+                            // change next and past node
+                            pastNode.setNextNode(futureNode);
+                            futureNode.setPastNode(pastNode);
+                            nodeFound = true;
+                        }
+                        // switch nodes
+                        pastNode = presentNode;
+                        presentNode = futureNode;
+                        futureNode = futureNode.getNextNode();
+                        // if last node is also not the value print
+                        if (presentNode.getNextNode() == null) {
+                            System.out.println("No such value in List");
+                            nodeFound = true;
+                        }
+                    }
+                } else {
+                    System.out.println("No such value in List");
+                }
+            }
+        }
+        setLast();
     }
 
     // Abfragen
@@ -87,8 +131,6 @@ public class finnList {
                 node = node.getNextNode();
             }
         }
-        System.out.println("Last Node Value" + this.last.getValue());
-        System.out.println("First Node Value" + this.first.getValue());
     }
 
     // Print

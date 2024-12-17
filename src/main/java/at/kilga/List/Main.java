@@ -6,19 +6,14 @@ public class Main {
         System.out.println();
         System.out.println("new Start");
         finnList list = new finnList();
-        list.getSize();
-        list.addLast(252);
-        list.addFirst(420);
-        list.addLast(360);
+        list.addLast(20);
+        list.addLast(30);
+        list.addLast(40);
+        list.addLast(50);
+        list.addLast(60);
         list.printList();
-        list.getSize();
         System.out.println("remove");
-        list.removeLast();
-        list.removeLast();
+        list.removeValue(50);
         list.printList();
-        System.out.println("remove last");
-        list.removeLast();
-        list.printList();
-        list.getSize();
     }
 }
