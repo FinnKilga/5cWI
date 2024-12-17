@@ -1,8 +1,8 @@
 package at.kilga.List;
 
 public class Node {
-    int value;
-    Node nextNode;
+    private int value;
+    private Node nextNode, pastNode;
 
     public Node(int val) {
         this.value = val;
@@ -23,4 +23,13 @@ public class Node {
     public void setNextNode(Node nextNode) {
         this.nextNode = nextNode;
     }
+
+    public Node getPastNode() {
+        return pastNode;
+    }
+
+    public void setPastNode(Node pastNode) {
+        this.pastNode = pastNode;
+    }
+
 }
