@@ -7,7 +7,7 @@ public class finnList {
     private int size = 0;
 
     // add
-    public void addFirst(int value) {
+    public void addFirst(double value) {
         Node node = new Node(value);
         if (listEmpty()) {
             this.first = node;
@@ -20,7 +20,7 @@ public class finnList {
         this.size++;
     }
 
-    public void addLast(int value) {
+    public void addLast(double value) {
         Node newNode = new Node(value);
         if (listEmpty()) {
             this.first = newNode;
@@ -67,7 +67,7 @@ public class finnList {
         this.size--;
     }
 
-    public void removeValue(int value) {
+    public void removeValue(double value) {
         if (listEmpty()) {
             System.out.println("No elements in list");
         } else {
@@ -97,12 +97,63 @@ public class finnList {
                         futureNode = futureNode.getNextNode();
                         // if last node is also not the value print
                         if (presentNode.getNextNode() == null) {
-                            System.out.println("No such value in List");
+                            System.out.println("Value: " + value + " not found");
                             nodeFound = true;
                         }
                     }
                 } else {
-                    System.out.println("No such value in List");
+                    System.out.println("Value: " + value + " not found");
+                }
+            }
+        }
+        setLast();
+    }
+
+    public void removeAll() {
+        if (listEmpty()) {
+            System.out.println("No elements in list");
+        } else {
+            while (this.size != 0) {
+                Node node = this.first.getNextNode();
+                this.first = node;
+                this.size--;
+            }
+        }
+    }
+
+    // replace
+    public void replace(double oldValue, double newValue) {
+        if (listEmpty()) {
+            System.out.println("No elements in list");
+        } else {
+
+            if (this.first.getValue() == oldValue) {
+                this.first.setValue(newValue);
+            } else if (this.last.getValue() == oldValue) {
+                this.last.setValue(newValue);
+            } else {
+                Node node;
+                boolean nodeFound = false;
+                if (this.size >= 3) {
+                    node = this.first.getNextNode();
+                    while (!nodeFound) {
+                        // check value
+                        if (node.getValue() == oldValue) {
+                            // change value
+                            node.setValue(newValue);
+                            nodeFound = true;
+                        }
+                        // if last node is also not the value print
+                        if (node.getNextNode() == null) {
+                            System.out.println("Value: " + oldValue + " not found");
+                            nodeFound = true;
+                        } else {
+                            // switch nodes
+                            node = node.getNextNode();
+                        }
+                    }
+                } else {
+                    System.out.println("Value: " + oldValue + " not found");
                 }
             }
         }

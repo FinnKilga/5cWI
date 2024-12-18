@@ -1,18 +1,18 @@
 package at.kilga.List;
 
 public class Node {
-    private int value;
+    private double value;
     private Node nextNode, pastNode;
 
-    public Node(int val) {
+    public Node(double val) {
         this.value = val;
     }
 
-    public int getValue() {
+    public double getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(double value) {
         this.value = value;
     }
 
