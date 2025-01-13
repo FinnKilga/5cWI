@@ -28,7 +28,6 @@ public class finnList {
             Node node = this.first;
             while (true) {
                 if (node.getNextNode() == null) {
-                    // System.out.println(node.getValue());
                     node.setNextNode(newNode);
                     newNode.setPastNode(node);
                     break;
@@ -206,6 +205,23 @@ public class finnList {
 
     public void getSize() {
         System.out.println(this.size);
+    }
+
+    public void help() {
+        System.out.println("The following actions are available:");
+        System.out.println("Add:");
+        System.out.println("addFirst() --> puts Object on the first place of the List");
+        System.out.println("addLast() --> puts Object on the last place of the List");
+        System.out.println("Remove:");
+        System.out.println("removeFirst() --> removes Object on the first place");
+        System.out.println("removeLast() --> removes Object on the last place");
+        System.out.println("removeAll() --> removes all Objects");
+        System.out.println("removeValue() --> removes specific Object");
+        System.out.println("Replace:");
+        System.out.println("replace() --> replaces specific Object");
+        System.out.println("Infos:");
+        System.out.println("printList() --> prints all Objects");
+        System.out.println("getSize() --> prints dize of List");
     }
 
 }
