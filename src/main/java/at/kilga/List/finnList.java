@@ -223,5 +223,4 @@ public class finnList {
         System.out.println("printList() --> prints all Objects");
         System.out.println("getSize() --> prints dize of List");
     }
-
 }
