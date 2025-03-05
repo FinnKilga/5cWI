@@ -79,6 +79,4 @@ app.delete('/DeletePeople', (req, res) => { //funktioniert
     }
 });
 
-
-
 app.listen(port, () => console.log(`listening on port ${port}!`))
