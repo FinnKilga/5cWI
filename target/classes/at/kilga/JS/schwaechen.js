@@ -11,6 +11,7 @@ Schwächen:
 let a = 5;
 a = "Hello";
 console.log(a); // Gibt "Hello" aus, aber es hätte auch zu Problemen führen können, wenn a als Zahl erwartet wurde
+//bei mir geht es
 
 
 //2. Asynchrone Programmierung: (JS verwendet Callback-Funktionen --> Ohne ordnungsgemäße Handhabung können Callbacks zu sogenannten "Callback-Höllen" führen)
@@ -34,6 +35,7 @@ getData(function (err, result) {
         });
     }
 });
+//hier kommt ein fehler
 
 //3. "this"-Verhalten:
 const obj = {
@@ -47,6 +49,7 @@ const greetFunction = obj.greet;
 greetFunction();  // Undefined oder Fehler, weil "this" nicht mehr auf obj verweist
 
 
+
 //4. Probleme mit der Namenskonvention:
 function greet() {
     console.log("Hello");
@@ -57,6 +60,7 @@ function greet() {
 }
 
 greet();  // Gibt "Hi" aus, da die letzte Definition die erste überschreibt
+//hier gibt er: Hello; undefined; Hi aus
 
 
 //5. Prototypen-basierte Vererbung:
@@ -69,4 +73,5 @@ function Dog() { }
 Dog.prototype = Object.create(Animal.prototype);
 
 const dog = new Dog();
-dog.speak();  // Gibt "Animal speaks" aus, was für den Entwickler schwer zu verstehen sein kann
+dog.speak();
+// Gibt "Animal speaks" (für Entwickler schwer zu verstehen)
